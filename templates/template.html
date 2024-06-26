@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Gangguan Hati</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1e90ff;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #1e90ff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #187bcd;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .positive {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .negative {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediksi Gangguan Hati</h1>
+        <form method="POST">
+            <label for="mcv">MCV:</label>
+            <input type="text" id="mcv" name="mcv" required>
+
+            <label for="alkphos">Alkphos:</label>
+            <input type="text" id="alkphos" name="alkphos" required>
+
+            <label for="sgpt">SGPT:</label>
+            <input type="text" id="sgpt" name="sgpt" required>
+
+            <label for="sgot">SGOT:</label>
+            <input type="text" id="sgot" name="sgot" required>
+
+            <label for="gammagt">Gammagt:</label>
+            <input type="text" id="gammagt" name="gammagt" required>
+
+            <label for="drinks">Drinks:</label>
+            <input type="text" id="drinks" name="drinks" required>
+
+            <button type="submit">Prediksi</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <p>Hasil Prediksi:</p>
+                <div class="message {{ 'positive' if prediction == 2 else 'negative' }}">
+                    {{ message }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
